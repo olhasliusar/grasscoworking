@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 	$(document).on('click', '.table__link_view', function(e){
 
-        for (var i = 0; i < 6; i++) {
+        for (var i = 0; i < 5; i++) {
         	$('.admin-event_view p:nth-of-type(' + i + ')').text( $(this).parent().parent().find('td:nth-child(' + i + ')').html() );
         }
 
@@ -15,7 +15,7 @@ $(document).ready(function() {
 
         rowEdit = $(this).parent().parent().data("row");
 
-        for (var i = 0; i < 6; i++) {
+        for (var i = 0; i < 5; i++) {
         	$('.form_edit input:nth-of-type(' + i + ')').val( $(this).parent().parent().find('td:nth-child(' + i + ')').html() );
         }
 
@@ -23,7 +23,7 @@ $(document).ready(function() {
 
     $('#edit-save').click(function(e){
 
-        for (var i = 0; i < 6; i++) {
+        for (var i = 0; i < 5; i++) {
             $('table [data-row="' + rowEdit + '"] td:nth-of-type(' + i + ')').text( $('.form_edit input:nth-of-type(' + i + ')').val() );
         }
 
@@ -36,6 +36,7 @@ $(document).ready(function() {
 
         for (var i = 1; i < 6; i++) {
         	$('tbody tr:last-child').append('<td>' + $('.form_add input:nth-of-type(' + i + ')').val() + '</td>');
+            $('.form_add input:nth-of-type(' + i + ')').val('');
         }
 
         $( 'tbody tr:last-child' ).append( '<td class="view"><a class="table__link_view" href="#view"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td> <td class="edit"><a class="table__link_edit" href="#edit"> <i class="fa fa-pencil" aria-hidden="true"></i> </a></td>');
